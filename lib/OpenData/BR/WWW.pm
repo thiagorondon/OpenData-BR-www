@@ -17,6 +17,12 @@ use Catalyst qw/
     ConfigLoader
     Static::Simple
     Unicode::Encoding
+    +CatalystX::SimpleLogin
+    Authentication
+    Session
+    Session::Store::File
+    Session::State::Cookie
+    Static::Simple
 /;
 
 extends 'Catalyst';
@@ -38,6 +44,10 @@ __PACKAGE__->config(
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
     encoding => 'UTF-8',
+    'Controller::Login' => {
+        traits => ['-RenderAsTTTemplate'],
+    },
+
 );
 
 # Start the application

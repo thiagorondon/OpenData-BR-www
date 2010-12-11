@@ -1,8 +1,14 @@
 
 <h1>Aplicativos</h1>
 
+<p>Compartilhe o teu aplicativo conosco ! Veja como <a href="">aqui</a>.</p>
 
-<h2>Reposit&oacute;rio de desenvolvimento do framework opendata-br</h2>
+<h3>Projetos</h2>
+
+<h4>Framework opendata-br</h4>
+
+<p>Nós desenvolvemos um framework para poder facilitar a vida de quem queira programar para buscar e transformar dados públicos em um formato aberto</p>
+
 <ul>
 <li><a href="https://github.com/maluco/OpenData-BR">https://github.com/maluco/OpenData-BR</a></li>
 </ul>

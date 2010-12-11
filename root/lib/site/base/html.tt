@@ -31,6 +31,7 @@
 	<li><a href="/aplicativos">Aplicativos</a></li>
 	<li><a href="/contato">Contato</a></li>
 	<li><a href="/login">Login</a></li>
+	<li><a href="/usuario/cadastro">Cadastro</a></li>
 	</ul>
 
 	</div><!--//end #nav//-->

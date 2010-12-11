@@ -5,15 +5,16 @@
 
 <p>O projeto OpenData-BR tem como objetivo disponibilizar dados para as pessoas entederem melhor como o governo trabalho, desenvolver aplica&ccedil;&otilde;es de busca e armazenamento de dados relativos aos portais do governo brasileiro, para que aumente a capacidade de leitura dos dados por humanos e m&aacute;quinas.</p>
 
-<h2>Interoperabilidade</h2>
-
-<p>É a capacidade de um sistema se comunicar de forma transparente com outro, ou seja as informações trocadas entre eles devem ser trabalhados com arquivos de padrões abertos. A importancia da disponibilidade de arquivos em formato aberto que o govenro disponibiliza faz com que qualquer um utilize dados do governo de foram interoperável.</p>
-
 <h2>Dados abertos</h2>
 
 <p>Nós nos esforçamos para seguir a especificação e recomedação da W3C sobre como disponibilizar dados aberto do governo. No qual a ideia é ter dados abertos para máquinas e humanos. Os padrões dos arquivos contidos são geralmente CSV, XLM ou RDF com uma estruturação documentada.</p>
 
 <p>Veja mais: <a href="http://www.w3.org/TR/gov-data/">http://www.w3.org/TR/gov-data/</a></p>
+
+
+<h2>Interoperabilidade</h2>
+
+<p>É a capacidade de um sistema se comunicar de forma transparente com outro, ou seja as informações trocadas entre eles devem ser trabalhados com arquivos de padrões abertos. A importancia da disponibilidade de arquivos em formato aberto que o govenro disponibiliza faz com que qualquer um utilize dados do governo de foram livre, ou seja interoperável.</p>
 
 <h2>Outros</h2>
 <ul>
