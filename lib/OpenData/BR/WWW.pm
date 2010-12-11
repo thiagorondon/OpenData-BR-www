@@ -50,6 +50,28 @@ __PACKAGE__->config(
 
 );
 
+__PACKAGE__->config(namespace => '');
+    __PACKAGE__->config(
+        'Plugin::Authentication' => {
+            default => {
+                credential => {
+                    class => 'Password',
+                    password_field => 'password',
+                    password_type => 'clear'
+                },
+                store => {
+                    class => 'Minimal',
+                    users => {
+                        test => {
+                            password => "test",
+                        },
+                    },
+                },
+            },
+        },
+);
+
+
 # Start the application
 __PACKAGE__->setup();
 

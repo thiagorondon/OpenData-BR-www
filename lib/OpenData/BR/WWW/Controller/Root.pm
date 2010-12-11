@@ -8,26 +8,6 @@ BEGIN { extends 'Catalyst::Controller' }
 # Sets the actions in this controller to be registered with no prefix
 # so they function identically to actions created in MyApp.pm
 #
-__PACKAGE__->config(namespace => '');
-    __PACKAGE__->config(
-        'Plugin::Authentication' => {
-            default => {
-                credential => {
-                    class => 'Password',
-                    password_field => 'password',
-                    password_type => 'clear'
-                },
-                store => {
-                    class => 'Minimal',
-                    users => {
-                        test => {
-                            password => "test",
-                        },
-                    },
-                },
-            },
-        },
-);
 
 =head1 NAME
 
