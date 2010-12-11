@@ -16,6 +16,7 @@ use Catalyst qw/
     -Debug
     ConfigLoader
     Static::Simple
+    Unicode::Encoding
 /;
 
 extends 'Catalyst';
@@ -36,6 +37,7 @@ __PACKAGE__->config(
     name => 'OpenData::BR::WWW',
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
+    encoding => 'UTF-8',
 );
 
 # Start the application
