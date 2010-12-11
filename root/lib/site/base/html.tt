@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Sao Paulo Perl Mongers" />
+	
+	[% IF template.current_page == 'home' %]
+	<meta name="description" content="OpenData-BR" />
+	[% END %]
+
+	<meta name="keywords" content="opendata, transparencia, governo, dados aberto" />
+
+	<link rel="stylesheet" href="/static/opendatabr.css" type="text/css" />
+    <title>OpenData-BR :: [% template.title %]</title>
+ </head>
+<body bgcolor="#FFFFFF">
+
+<div id="centerColumn">
+	<div id="header">
+	<h1>OpenData-BR</h1>
+	<h2>Dados P&uacute;blicos brasileiros</h2>
+	</div><!--//end #headern//-->
+	
+	<div id="nav">
+	
+	<ul>
+	<li><a href="/">Sobre</a></li>
+	<li><a href="/dados">Dados</a></li>
+	<li><a href="/ideias">Ideias</a></li>
+	<li><a href="/aplicativos">Aplicativos</a></li>
+	<li><a href="/contato">Contato</a></li>
+	</ul>
+
+	</div><!--//end #nav//-->
+	
+[% content %]
+
+<div id="footer">
+<p>
+<a href="http://validator.w3.org/check/referer"><img src="/static/images/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+<br clear="left" />
+</p>
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19963688-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</body>
+</html>
+
+
