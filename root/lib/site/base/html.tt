@@ -30,8 +30,13 @@
 	<li><a href="/ideias">Ideias</a></li>
 	<li><a href="/aplicativos">Aplicativos</a></li>
 	<li><a href="/contato">Contato</a></li>
+	[% IF user %]
+	<li><a href="/usuario/preferencias">Preferencias</a></li>
+	<li><a href="/logout">Logout</a></li>
+	[% ELSE %]
 	<li><a href="/login">Login</a></li>
 	<li><a href="/usuario/cadastro">Cadastro</a></li>
+	[% END %]
 	</ul>
 
 	</div><!--//end #nav//-->

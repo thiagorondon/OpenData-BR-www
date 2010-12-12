@@ -42,35 +42,34 @@ $VERSION = eval $VERSION;
 __PACKAGE__->config(
     name => 'OpenData::BR::WWW',
     # Disable deprecated behavior needed by old applications
-    disable_component_resolution_regex_fallback => 1,
+    #disable_component_resolution_regex_fallback => 1,
     encoding => 'UTF-8',
     'Controller::Login' => {
-        traits => ['-RenderAsTTTemplate'],
+        traits => [qw/ Logout WithRedirect -RenderAsTTTemplate /]
+    },
+    'Plugin::Session' => {
+        flash_to_stash => 1
     },
 
 );
 
 __PACKAGE__->config(namespace => '');
-    __PACKAGE__->config(
-        'Plugin::Authentication' => {
-            default => {
-                credential => {
-                    class => 'Password',
-                    password_field => 'password',
-                    password_type => 'clear'
-                },
-                store => {
-                    class => 'Minimal',
-                    users => {
-                        test => {
-                            password => "test",
-                        },
-                    },
-                },
+
+__PACKAGE__->config(
+    'Plugin::Authentication' => {
+        default => {
+            credential => {
+                class => 'Password',
+                password_field => 'password',
+                password_type => 'clear'
+            },
+            store => {
+                class => 'DBIx::Class',
+                user_model => 'DB::Users',
             },
         },
+    },
 );
-
 
 # Start the application
 __PACKAGE__->setup();
