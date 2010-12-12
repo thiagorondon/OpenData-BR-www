@@ -12,6 +12,8 @@ Cadastro realizado com sucesso !
 <Br/><br/>
 [% END %]
 
+<p>Com o cadastro, você pode compartilhar ideias, dados e projetos relacionados a informações de opendata do governo brasileiro.</p>
+
 <form method="POST">
 
 <table><tr><td>
