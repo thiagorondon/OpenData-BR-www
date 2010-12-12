@@ -1,0 +1,19 @@
+
+<h1>Login</h1>
+
+<div class="error">[% error_msg || c.flash.error_msg %]</div>
+
+<form action="/login" method="POST">
+
+<table><tr><td>
+E-mail : </td><td> <input type="text" name="username" size="15">
+</td></tr><tr><td>
+Senha: </td><td>
+<input type="password" name="password" size="15">
+</td></tr><tr><td colspan="2">
+<input type="submit" value=" Login ">
+</td></tr></table>
+
+
+</form>
+
