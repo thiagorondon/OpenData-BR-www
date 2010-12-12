@@ -15,6 +15,16 @@ requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
 requires 'Moose';
 requires 'namespace::autoclean';
+requires 'parent';
+requires 'MooseX::Role::Parameterized';
+requires 'Perl6::Junction';
+requires 'Catalyst::Authentication::Store::DBIx::Class';
+requires 'Catalyst::Plugin::ConfigLoader';
+requires 'Catalyst::Plugin::Unicode::Encoding';
+requires 'Catalyst::Plugin::Static::Simple';
+requires 'MooseX::RelatedClassRoles';
+requires 'CatalystX::SimpleLogin';
+
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats
 test_requires 'Test::More' => '0.88';
