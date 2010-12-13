@@ -13,37 +13,67 @@ sub base_required : Chained('/required') PathPart('usuario') CaptureArgs(0) {}
 
 sub cadastro : Chained('base') Args(0) {
     my ($self, $c) = @_;
-    my $collection = $c->model('DB::Usuarios');
+    my $collection = $c->model('DB::Users');
     
     $c->forward('handle_POST');
+    $c->forward('check_DATA');
+
+    $collection->new({
+        name => $c->req->param('nome'),
+        password => $c->req->param('senha'),
+        username => $c->req->param('email'),
+        active => 1
+    })->insert;
+
+    $c->stash->{success} = 1;
+}
+
+sub preferencias : Chained('base_required') : Args(0) {
+    my ($self, $c) = @_;
+
+    my $collection = $c->model('DB::Users');
+    my $obj = $collection->find($c->user->obj->id);
+    
+    $c->stash->{nome} = $obj->name;
+    $c->stash->{preferencias} = 1;
+
+    $c->forward('handle_POST');
+    $c->forward('check_DATA');
+
+    $obj->update({
+        name => $c->req->param('nome'),
+        $c->req->param('senha') ? ( password => $c->req->param('senha') ) : ()
+    });
+
+    $c->stash->{nome} = $obj->name;
+    $c->stash->{success} = 1;
+}
+
+sub check_DATA : Private {
+    my ($self, $c) = @_;
 
     if (length($c->req->param('nome')) < 10) {
         $c->stash->{error_msg} = 'Nome muito curto.';
         $c->detach;
     }
 
-    if (length($c->req->param('senha')) < 5) {
+    my $need_to_check_pass = 0;
+    if ( ($c->stash->{preferencias} and $c->req->param('senha') ) 
+            or !$c->stash->{preferencias} ) {
+        $need_to_check_pass = 1;
+    }
+    
+    if ( $need_to_check_pass and length($c->req->param('senha')) < 5 ) {
         $c->stash->{error_msg} = 'A senha deve conter no minimo 5 caracteres';
         $c->detach;
     }
 
-    if (!Email::Valid->address($c->req->param('email'))) {
+    if ( !$c->stash->{preferencias} and 
+            !Email::Valid->address($c->req->param('email')) ) {
         $c->stash->{error_msg} = 'E-mail invalido';
         $c->detach;
     }
-
-    $collection->new({
-        nome => $c->req->param('nome'),
-        senha => $c->req->param('senha'),
-        email => $c->req->param('email'),
-        ativo => 1
-    })->insert;
-
-    $c->stash->{success} = 1;
 }
-
-sub preferencias : Chained('base_required') : Args(0) {}
-
 sub handle_POST : Private {
     my ($self, $c) = @_;
 

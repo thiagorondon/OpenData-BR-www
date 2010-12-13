@@ -1,0 +1,29 @@
+
+<form method="POST">
+
+<table><tr><td>
+
+E-mail: </td><td> 
+
+[% IF c.user %]
+[% c.user.obj.username %]
+
+[% ELSE %]
+<input type="text" name="email" size="20">
+
+[% END %]
+
+</td></tr><tr><td>
+
+Nome completo: </td><td> <input type="text" name="nome" value="[% nome %]" size="20">
+
+</td></tr><tr><td>
+
+Senha: </td><td> <input type="password" name="senha" size="20">
+
+</td></tr><tr><td colspan="2">
+
+<input type="submit" value=" Enviar ">
+
+</td></tr></table>
+

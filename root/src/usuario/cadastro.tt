@@ -14,25 +14,7 @@ Cadastro realizado com sucesso !
 
 <p>Com o cadastro, você pode compartilhar ideias, dados e projetos relacionados a informações de opendata do governo brasileiro.</p>
 
-<form method="POST">
-
-<table><tr><td>
-
-Nome completo: </td><td> <input type="text" name="nome" size="20">
-
-</td></tr><tr><td>
-
-E-mail: </td><td> <input type="text" name="email" size="20">
-
-</td></tr><tr><td>
-
-Senha: </td><td> <input type="password" name="senha" size="20">
-
-</td></tr><tr><td colspan="2">
-
-<input type="submit" value=" Enviar ">
-
-</td></tr></table>
+[% INCLUDE usuario/campos.tt %]
 
 [% END %]
 
