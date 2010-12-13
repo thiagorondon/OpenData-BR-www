@@ -3,7 +3,7 @@ use warnings;
 use Test::More;
 
 BEGIN { use_ok 'Catalyst::Test', 'OpenData::BR::WWW' }
-BEGIN { use_ok 'OpenData::BR::WWW::Controller::Usuario' }
+BEGIN { use_ok 'OpenData::BR::WWW::Controller::User' }
 
 ok( request('/usuario')->is_success, 'Request should succeed' );
 done_testing();

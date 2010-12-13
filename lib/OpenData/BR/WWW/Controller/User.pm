@@ -1,4 +1,4 @@
-package OpenData::BR::WWW::Controller::Usuario;
+package OpenData::BR::WWW::Controller::User;
 use Moose;
 use MooseX::MethodAttributes;
 use Email::Valid;
