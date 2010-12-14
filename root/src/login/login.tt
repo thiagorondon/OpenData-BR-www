@@ -3,6 +3,9 @@
 
 <div class="error">[% error_msg || c.flash.error_msg %]</div>
 
+
+<p><A href="/usuario/cadastro">N&atilde;o tem cadastro?</a></p>
+
 <form action="/login" method="POST">
 
 <table><tr><td>

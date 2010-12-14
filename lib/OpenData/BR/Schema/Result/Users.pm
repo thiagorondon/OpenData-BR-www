@@ -47,6 +47,12 @@ __PACKAGE__->add_columns(
 );
 
 __PACKAGE__->set_primary_key("id");
-__PACKAGE__->add_unique_constraint([ qw/ username / ]);
+__PACKAGE__->add_unique_constraint( ['username'] );
+
+__PACKAGE__->has_many(
+    ideias => 'OpenData::BR::Schema::Result::Ideias'
+        => { 'foreign.user_id' => 'self.id' }
+);
+
 1;
 

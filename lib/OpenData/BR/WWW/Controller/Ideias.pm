@@ -11,7 +11,18 @@ sub base : Chained('/base') PathPart('ideias') CaptureArgs(0) {}
 
 sub base_required : Chained('/required') PathPart('ideias') CaptureArgs(0) {}
 
-sub root : Chained('base') PathPart('') Args(0) {}
+sub root : Chained('base') PathPart('') Args(0) {
+    my ($self, $c) = @_;
+
+    $c->forward('last_IDEIAS');
+}
+
+sub ver : Chained('base') Args(1) {
+    my ($self, $c, $id) = @_;
+    my $collection = $c->model('DB::Ideias');
+
+    $c->stash->{ideia} = $collection->find($id);
+}
 
 sub nova : Chained('base_required') Args(0) {
     my ($self, $c) = @_;
@@ -31,6 +42,14 @@ sub nova : Chained('base_required') Args(0) {
     })->insert;
 
     $c->stash->{success} = 1;
+}
+
+sub last_IDEIAS : Private {
+    my ($self, $c) = @_;
+    my $collection = $c->model('DB::Ideias');
+
+    $c->stash->{collection}{ideias} = $collection->search({});
+
 }
 
 sub check_DATA : Private {

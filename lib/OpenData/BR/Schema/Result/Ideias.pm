@@ -8,6 +8,7 @@ use warnings;
 use base 'DBIx::Class::Core';
 
 __PACKAGE__->table("ideias");
+__PACKAGE__->load_components(qw/Core InflateColumn::DateTime/);
 
 __PACKAGE__->add_columns(
   "id",
@@ -50,7 +51,12 @@ __PACKAGE__->add_columns(
 );
 
 __PACKAGE__->set_primary_key("id");
-__PACKAGE__->add_unique_constraint([ qw/ title / ]);
+__PACKAGE__->add_unique_constraint( ['title'] );
+
+__PACKAGE__->belongs_to(
+    user => 'OpenData::BR::Schema::Result::Users' => 
+        { 'foreign.id' => 'self.user_id' }
+);
 
 1;
 

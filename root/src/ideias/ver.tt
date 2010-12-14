@@ -1,0 +1,19 @@
+
+<h1>Ideias</h1>
+
+<h2>[% ideia.title %]</h2>
+
+<p>Postado no dia [% ideia.create_time.strftime('%d/%m/%Y') %] às [% ideia.create_time.strftime('%H:%M:%S') %] por [% ideia.user.name %].</p>
+
+<p>Tags: [% ideia.tags %]</p>
+
+<blockquote>
+[% ideia.description %]
+</blockquote>
+
+[% IF user %]
+	[% INCLUDE ideias/comentar.tt %]
+[% ELSE %]
+	Para comentar efetue o <a href="/login">login</a>.
+[% END %]
+

@@ -1,0 +1,9 @@
+
+<table><tr><td valign="top">
+Coment&aacute;rio:
+</td><td valign="top">
+<textarea name="comentario" rows="10" cols="55"></textarea>
+</td></tr><tr><td colspan="2">
+<input type="submit" value=" comentar! ">
+</td></tr></table>
+
