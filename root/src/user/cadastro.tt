@@ -1,0 +1,25 @@
+
+<h1>Cadastro</h1>
+
+[% IF success %]
+
+Cadastro realizado com sucesso ! 
+
+[% ELSE %]
+
+[% IF error_msg %]
+<b>Erro: [% error_msg %]</b>
+<Br/><br/>
+[% END %]
+
+[% IF recaptcha_error %]
+<b>Erro: Confira o codigo de seguranca digitado</b>
+<br/><br/>
+[% END %]
+
+<p>Com o cadastro, você pode compartilhar ideias, dados e projetos relacionados a informações de opendata do governo brasileiro.</p>
+
+[% INCLUDE user/campos.tt %]
+
+[% END %]
+
