@@ -11,6 +11,8 @@
 [% ideia.description %]
 </blockquote>
 
+[% INCLUDE ideias/comentarios.tt %]
+
 [% IF user %]
 	[% INCLUDE ideias/comentar.tt %]
 [% ELSE %]

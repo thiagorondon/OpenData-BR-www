@@ -1,32 +1,30 @@
 
-package OpenData::BR::Schema::Result::Ideias;
-
+package OpenData::BR::Schema::Result::IdeiasComments;
 
 use strict;
 use warnings;
 
 use base 'DBIx::Class::Core';
 
-__PACKAGE__->table("ideias");
+__PACKAGE__->table("ideias_comments");
 __PACKAGE__->load_components(qw/Core InflateColumn::DateTime/);
 
 __PACKAGE__->add_columns(
-  "id",
+    "id",
     {
         data_type => "INT",
         default_value => undef,
         size => 11,
     },
-    "title",
+    "user_id",
     {
-        data_type => "varchar",
-        default_value => undef,
-        size => 255
+        data_type => "INT",
+        default_value => undef
     },
-    "tags",
+    "ideia_id",
     {
-        data_type => "longtext",
-        default_value => undef,
+        data_type => "INT",
+        default_value => undef
     },
     "description",
     {
@@ -38,29 +36,18 @@ __PACKAGE__->add_columns(
         size => 4,
         default => \'NOW()',
     },
-    "active",
-    {
-        data_type => 'bool',
-        default => 1
-    },
-    "user_id",
-    {
-        data_type => 'integer',
-        size => 11
-    }
 );
 
 __PACKAGE__->set_primary_key("id");
-__PACKAGE__->add_unique_constraint( ['title'] );
 
 __PACKAGE__->belongs_to(
     user => 'OpenData::BR::Schema::Result::Users' => 
         { 'foreign.id' => 'self.user_id' }
 );
 
-__PACKAGE__->has_many(
-    comments => 'OpenData::BR::Schema::Result::IdeiasComments'
-        => { 'foreign.ideia_id' => 'self.id' }
+__PACKAGE__->belongs_to(
+    ideia => 'OpenData::BR::Schema::Result::Ideias' => 
+        { 'foreign.id' => 'self.ideia_id' }
 );
 
 1;

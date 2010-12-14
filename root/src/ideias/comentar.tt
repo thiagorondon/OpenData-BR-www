@@ -1,9 +1,23 @@
 
+[% IF success %]
+
+<b>Comentário inserido com sucesso!</b>
+
+[% ELSE %]
+
+[% IF error_msg %]
+Erro: [% error_msg %]
+[% END %]
+
+<form method="POST">
 <table><tr><td valign="top">
-Coment&aacute;rio:
+Novo Coment&aacute;rio:
 </td><td valign="top">
-<textarea name="comentario" rows="10" cols="55"></textarea>
+<textarea name="descricao" rows="10" cols="55">[% descricao %]</textarea>
 </td></tr><tr><td colspan="2">
 <input type="submit" value=" comentar! ">
 </td></tr></table>
+</form>
+
+[% END %]
 

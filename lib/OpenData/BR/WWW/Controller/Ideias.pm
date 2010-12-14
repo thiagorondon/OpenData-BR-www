@@ -22,6 +22,24 @@ sub ver : Chained('base') Args(1) {
     my $collection = $c->model('DB::Ideias');
 
     $c->stash->{ideia} = $collection->find($id);
+    $c->forward('handle_POST');
+
+    if (length($c->req->param('descricao')) < 10) {
+        $c->stash->{error_msg} = "Comentario muito curto.";
+        $c->stash->{descricao} = $c->req->param('descricao');
+        $c->detach;
+    }
+
+    my $collection_comments = $c->model('DB::IdeiasComments');
+    $collection_comments->new({
+        user_id => $c->user->obj->id,
+        ideia_id => $id,
+        description => $c->req->param('descricao'),
+        create_time => \'NOW()'
+    })->insert;
+    
+    $c->stash->{ideia} = $collection->find($id);
+    $c->stash->{success} = 1;
 }
 
 sub nova : Chained('base_required') Args(0) {
