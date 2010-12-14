@@ -1,9 +1,0 @@
-
-<h1>Preferencias</h1>
-
-[% IF error_msg %]
-	Erro: <b>[% error_msg %]</b>
-[% END %]
-
-[% INCLUDE usuario/campos.tt %]
-

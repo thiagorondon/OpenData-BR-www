@@ -5,7 +5,7 @@ use Email::Valid;
 
 use namespace::autoclean;
 
-BEGIN { extends 'Catalyst::Controller'; }
+BEGIN { extends 'Catalyst::Controller::reCAPTCHA'; }
 
 sub base : Chained('/base') PathPart('usuario') CaptureArgs(0) {}
 
@@ -14,10 +14,14 @@ sub base_required : Chained('/required') PathPart('usuario') CaptureArgs(0) {}
 sub cadastro : Chained('base') Args(0) {
     my ($self, $c) = @_;
     my $collection = $c->model('DB::Users');
-    
+    $c->forward('captcha_get') if $c->req->method ne 'POST';
+
     $c->forward('handle_POST');
     $c->forward('check_DATA');
-
+    
+    $c->forward('captcha_check');
+    $c->detach('captcha_get') unless $c->stash->{recaptcha_ok};
+ 
     $collection->new({
         name => $c->req->param('nome'),
         password => $c->req->param('senha'),
@@ -51,10 +55,13 @@ sub preferencias : Chained('base_required') : Args(0) {
 
 sub check_DATA : Private {
     my ($self, $c) = @_;
+    
+    my $collection = $c->model('DB::Users');
 
+    my @error_fields;
     if (length($c->req->param('nome')) < 10) {
         $c->stash->{error_msg} = 'Nome muito curto.';
-        $c->detach;
+        push(@error_fields, 'nome');
     }
 
     my $need_to_check_pass = 0;
@@ -65,14 +72,25 @@ sub check_DATA : Private {
     
     if ( $need_to_check_pass and length($c->req->param('senha')) < 5 ) {
         $c->stash->{error_msg} = 'A senha deve conter no minimo 5 caracteres';
-        $c->detach;
+        push(@error_fields, 'senha');
     }
 
-    if ( !$c->stash->{preferencias} and 
-            !Email::Valid->address($c->req->param('email')) ) {
-        $c->stash->{error_msg} = 'E-mail invalido';
-        $c->detach;
+    if ( !$c->stash->{preferencias} ) {
+        if (!Email::Valid->address($c->req->param('email')) ) {
+            $c->stash->{error_msg} = 'E-mail invalido';
+            push(@error_fields, 'email');
+        }
+
+        if ($collection->search({username => $c->req->param('email')})->first) {
+            $c->stash->{error_msg} = 'E-mail j&aacute; cadastrado.';
+            push(@error_fields, 'email');
+        }
     }
+
+    my @fields = ('nome', 'email', 'senha');
+    map { $c->stash->{$_} = $c->req->param($_) } @fields;
+    map { $c->stash->{$_} = undef } @error_fields;
+    $c->detach if scalar(@error_fields);
 }
 sub handle_POST : Private {
     my ($self, $c) = @_;

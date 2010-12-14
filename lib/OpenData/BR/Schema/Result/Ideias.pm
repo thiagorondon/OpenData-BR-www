@@ -22,7 +22,7 @@ __PACKAGE__->add_columns(
         default_value => undef,
         size => 255
     },
-    "tag",
+    "tags",
     {
         data_type => "longtext",
         default_value => undef,
@@ -42,6 +42,11 @@ __PACKAGE__->add_columns(
         data_type => 'bool',
         default => 1
     },
+    "user_id",
+    {
+        data_type => 'integer',
+        size => 11
+    }
 );
 
 __PACKAGE__->set_primary_key("id");

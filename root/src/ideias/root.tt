@@ -1,5 +1,9 @@
 
 <h1>Ideias</h1>
 
-<p>Você tem alguma boa ideia para manipular ou buscar dados do governo para ficarem de forma livres e transparentes ? Envie ela para nós!</p>
+<p>Você tem alguma boa ideia para manipular ou buscar dados do governo para ficarem de forma livres e transparentes ? 
+
+[% IF user %] <a href="/ideias/nova">clique aqui!</a> 
+[% ELSE %] efetue <a href="/login">login</a> e preencha um simples formulario!
+[% END %]
 

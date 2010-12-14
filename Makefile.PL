@@ -26,6 +26,7 @@ requires 'MooseX::RelatedClassRoles';
 requires 'CatalystX::SimpleLogin';
 requires 'FCGI';
 requires 'FCGI::ProcManager';
+requires 'Catalyst::Controller::reCAPTCHA';
 
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats

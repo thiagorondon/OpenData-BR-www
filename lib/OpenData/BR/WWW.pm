@@ -71,6 +71,10 @@ __PACKAGE__->config(
     },
 );
 
+__PACKAGE__->config->{recaptcha}->{pub_key} = '6LcNlb8SAAAAAMVDLEYpb8mRAkeNVScBTgzyw3il';
+
+__PACKAGE__->config->{recaptcha}->{priv_key} = '6LcNlb8SAAAAABnmMBBsSogLmcAKxXBYekX79zk2';
+
 # Start the application
 __PACKAGE__->setup();
 

@@ -1,26 +1,21 @@
 
 <h1>Ideias</h1>
 
-<form method="POST">
+[% IF success %]
 
-<Table><tr><td>
-Titulo:
-</td><td>
-<input type="text" name="titulo" size="35">
+<p>
+Ideia compartilhada! Ela será publicada em breve, depois da analise de nossos moderadores.
+</p>
 
-</td></tr><tr><td>
-Tags:
-</td><td>
-<input type="text" name="tags" size="35">
+[% ELSE %]
 
-</td></tr><tr><td valign="top">
-Descrição:
-</td><td>
-<textarea name="descricao" rows="15" cols="34"></textarea>
+	[% IF error_msg %]
 
-</td></tr><tr><td colspan="2">
-<input type="submit" value=" Compartilhar ! ">
+	<p>Erro: <b> [% error_msg %] </b> </p>
 
-</td></tr></table>
+	[% END %]
 
+[% INCLUDE ideias/campos.tt %]
+
+[% END %]
 
