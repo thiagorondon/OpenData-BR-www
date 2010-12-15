@@ -78,17 +78,6 @@ __PACKAGE__->config->{recaptcha}->{priv_key} = '6LcNlb8SAAAAABnmMBBsSogLmcAKxXBY
 # Start the application
 __PACKAGE__->setup();
 
-after prepare_parameters => sub {
-    my($c) = @_;
-    for my $value ( values %{ $c->request->body_parameters } ) {
-        if ( ref $value && ref $value ne 'ARRAY' ) {
-            next;
-        }
-
-        utf8::decode($_) for ( ref($value) ? @{$value} : $value );
-    }
-};
-
 =head1 NAME
 
 OpenData::BR::WWW - Catalyst based application
