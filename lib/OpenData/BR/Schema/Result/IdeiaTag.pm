@@ -1,30 +1,28 @@
 
-package OpenData::BR::Schema::Result::Tag;
+package OpenData::BR::Schema::Result::IdeiaTag;
 
 use strict;
 use warnings;
 
 use base 'DBIx::Class::Core';
 
-__PACKAGE__->table("tag");
+__PACKAGE__->table("ideia_tag");
 __PACKAGE__->load_components(qw/Core ForceUTF8/);
 
 __PACKAGE__->add_columns(
-    "id",
+    "ideia_id",
     {
         data_type => "INT",
-        default_value => undef,
         size => 11,
     },
-    "tag",
+    "tag_id",
     {
-        data_type => "varchar",
+        data_type => "INT",
         size => 255
     },
 );
 
-__PACKAGE__->set_primary_key("id");
-__PACKAGE__->add_unique_constraint( ['tag'] );
+__PACKAGE__->set_primary_key(qw(ideia_id tag_id));
 
 1;
 
