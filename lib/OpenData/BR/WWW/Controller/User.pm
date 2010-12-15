@@ -13,7 +13,7 @@ sub base_required : Chained('/required') PathPart('usuario') CaptureArgs(0) {}
 
 sub cadastro : Chained('base') Args(0) {
     my ($self, $c) = @_;
-    my $collection = $c->model('DB::Users');
+    my $collection = $c->model('DB::User');
     $c->forward('captcha_get') if $c->req->method ne 'POST';
 
     $c->forward('handle_POST');
@@ -35,7 +35,7 @@ sub cadastro : Chained('base') Args(0) {
 sub preferencias : Chained('base_required') : Args(0) {
     my ($self, $c) = @_;
 
-    my $collection = $c->model('DB::Users');
+    my $collection = $c->model('DB::User');
     my $obj = $collection->find($c->user->obj->id);
     
     $c->stash->{nome} = $obj->name;
@@ -56,7 +56,7 @@ sub preferencias : Chained('base_required') : Args(0) {
 sub check_DATA : Private {
     my ($self, $c) = @_;
     
-    my $collection = $c->model('DB::Users');
+    my $collection = $c->model('DB::User');
 
     my @error_fields;
     if (length($c->req->param('nome')) < 10) {

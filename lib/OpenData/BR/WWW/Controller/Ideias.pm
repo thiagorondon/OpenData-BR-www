@@ -19,7 +19,7 @@ sub root : Chained('base') PathPart('') Args(0) {
 
 sub ver : Chained('base') Args(1) {
     my ($self, $c, $id) = @_;
-    my $collection = $c->model('DB::Ideias');
+    my $collection = $c->model('DB::Ideia');
 
     $c->stash->{ideia} = $collection->find($id);
     $c->forward('handle_POST');
@@ -30,7 +30,7 @@ sub ver : Chained('base') Args(1) {
         $c->detach;
     }
 
-    my $collection_comments = $c->model('DB::IdeiasComments');
+    my $collection_comments = $c->model('DB::IdeiaComment');
     $collection_comments->new({
         user_id => $c->user->obj->id,
         ideia_id => $id,
@@ -48,7 +48,7 @@ sub nova : Chained('base_required') Args(0) {
     $c->forward('handle_POST');
     $c->forward('check_DATA');
 
-    my $collection = $c->model('DB::Ideias');
+    my $collection = $c->model('DB::Ideia');
 
     $collection->new({
         title => $c->req->param('titulo'),
@@ -64,7 +64,7 @@ sub nova : Chained('base_required') Args(0) {
 
 sub last_IDEIAS : Private {
     my ($self, $c) = @_;
-    my $collection = $c->model('DB::Ideias');
+    my $collection = $c->model('DB::Ideia');
 
     $c->stash->{collection}{ideias} = $collection->search({});
 
@@ -72,7 +72,7 @@ sub last_IDEIAS : Private {
 
 sub check_DATA : Private {
     my ($self, $c) = @_;
-    my $collection = $c->model('DB::Ideias');
+    my $collection = $c->model('DB::Ideia');
 
     my @error_fields = ();
     if ( !$c->req->param('titulo') or length($c->req->param('titulo')) < 8 ) {

@@ -1,5 +1,5 @@
 
-package OpenData::BR::Schema::Result::Ideias;
+package OpenData::BR::Schema::Result::Ideia;
 
 
 use strict;
@@ -7,7 +7,7 @@ use warnings;
 
 use base 'DBIx::Class::Core';
 
-__PACKAGE__->table("ideias");
+__PACKAGE__->table("ideia");
 __PACKAGE__->load_components(qw/Core InflateColumn::DateTime ForceUTF8/);
 
 __PACKAGE__->add_columns(
@@ -54,12 +54,12 @@ __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint( ['title'] );
 
 __PACKAGE__->belongs_to(
-    user => 'OpenData::BR::Schema::Result::Users' => 
+    user => 'OpenData::BR::Schema::Result::User' => 
         { 'foreign.id' => 'self.user_id' }
 );
 
 __PACKAGE__->has_many(
-    comments => 'OpenData::BR::Schema::Result::IdeiasComments'
+    comments => 'OpenData::BR::Schema::Result::IdeiaComment'
         => { 'foreign.ideia_id' => 'self.id' }
 );
 

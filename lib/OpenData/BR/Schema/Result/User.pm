@@ -1,5 +1,5 @@
 
-package OpenData::BR::Schema::Result::Users;
+package OpenData::BR::Schema::Result::User;
 
 
 use strict;
@@ -7,7 +7,7 @@ use warnings;
 
 use base 'DBIx::Class::Core';
 
-__PACKAGE__->table("users");
+__PACKAGE__->table("user");
 __PACKAGE__->load_components(qw/Core InflateColumn::DateTime ForceUTF8/);
 
 __PACKAGE__->add_columns(
@@ -51,7 +51,7 @@ __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint( ['username'] );
 
 __PACKAGE__->has_many(
-    ideias => 'OpenData::BR::Schema::Result::Ideias'
+    ideias => 'OpenData::BR::Schema::Result::Ideia'
         => { 'foreign.user_id' => 'self.id' }
 );
 

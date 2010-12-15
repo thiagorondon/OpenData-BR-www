@@ -1,12 +1,12 @@
 
-package OpenData::BR::Schema::Result::IdeiasComments;
+package OpenData::BR::Schema::Result::IdeiaComment;
 
 use strict;
 use warnings;
 
 use base 'DBIx::Class::Core';
 
-__PACKAGE__->table("ideias_comments");
+__PACKAGE__->table("ideia_comment");
 __PACKAGE__->load_components(qw/Core InflateColumn::DateTime ForceUTF8/);
 
 __PACKAGE__->add_columns(
@@ -41,12 +41,12 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 __PACKAGE__->belongs_to(
-    user => 'OpenData::BR::Schema::Result::Users' => 
+    user => 'OpenData::BR::Schema::Result::User' => 
         { 'foreign.id' => 'self.user_id' }
 );
 
 __PACKAGE__->belongs_to(
-    ideia => 'OpenData::BR::Schema::Result::Ideias' => 
+    ideia => 'OpenData::BR::Schema::Result::Ideia' => 
         { 'foreign.id' => 'self.ideia_id' }
 );
 
