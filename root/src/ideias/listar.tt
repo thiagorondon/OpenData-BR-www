@@ -2,10 +2,11 @@
 [% FOREACH ideia = collection.ideias.all %]
 
 <blockquote>
-* <a href="/ideias/ver/[% ideia.id %]">[% ideia.title %]</a> postada no dia [% ideia.create_time.strftime('%d/%m/%Y') %]<br/>
- 
-[% ideia.description %]
+* <a href="/ideias/ver/[% ideia.id %]">[% ideia.title %]</a> postada no dia [% ideia.create_time.strftime('%d/%m/%Y') %].<br/>
 
+[% ideia.description %]
+<hr size=1>
+Tags: [% ideia.tags %]
 </blockquote>
 
 [% END %]
