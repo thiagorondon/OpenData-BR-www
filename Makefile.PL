@@ -27,6 +27,7 @@ requires 'CatalystX::SimpleLogin';
 requires 'FCGI';
 requires 'FCGI::ProcManager';
 requires 'Catalyst::Controller::reCAPTCHA';
+requires 'DBIx::Class::ForceUTF8';
 
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats

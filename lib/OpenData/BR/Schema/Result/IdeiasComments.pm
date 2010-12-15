@@ -7,7 +7,7 @@ use warnings;
 use base 'DBIx::Class::Core';
 
 __PACKAGE__->table("ideias_comments");
-__PACKAGE__->load_components(qw/Core InflateColumn::DateTime/);
+__PACKAGE__->load_components(qw/Core InflateColumn::DateTime ForceUTF8/);
 
 __PACKAGE__->add_columns(
     "id",
