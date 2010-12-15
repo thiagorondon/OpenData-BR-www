@@ -24,5 +24,13 @@ __PACKAGE__->add_columns(
 
 __PACKAGE__->set_primary_key(qw(ideia_id tag_id));
 
+__PACKAGE__->belongs_to(
+    ideia => 'OpenData::BR::Schema::Result::Ideia' =>
+        { 'foreign.id' => 'self.ideia_id' } );
+
+__PACKAGE__->belongs_to(
+    tag => 'OpenData::BR::Schema::Result::Tag' =>
+        { 'foreign.id' => 'self.tag_id' } );
+
 1;
 
