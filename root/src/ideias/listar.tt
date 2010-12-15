@@ -1,10 +1,18 @@
 
+[% USE String %]
+
 [% FOREACH ideia = collection.ideias.all %]
 
 <blockquote>
 * <a href="/ideias/ver/[% ideia.id %]">[% ideia.title %]</a> postada no dia [% ideia.create_time.strftime('%d/%m/%Y') %].<br/>
 
-[% ideia.description %]
+[% desc = String.new(ideia.description) %]
+[% IF desc.length > 60 %]
+	[% desc.substr(0,60) %]...
+[% ELSE %]
+	[% desc %]
+[% END %]
+
 <hr size=1>
 Tags: [% ideia.tags %]
 </blockquote>
