@@ -1,6 +1,4 @@
-
 package OpenData::BR::Schema::Result::Ideia;
-
 
 use strict;
 use warnings;

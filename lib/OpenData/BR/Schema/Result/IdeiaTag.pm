@@ -1,4 +1,3 @@
-
 package OpenData::BR::Schema::Result::IdeiaTag;
 
 use strict;

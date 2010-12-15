@@ -1,6 +1,4 @@
-
 package OpenData::BR::Schema::Result::User;
-
 
 use strict;
 use warnings;
