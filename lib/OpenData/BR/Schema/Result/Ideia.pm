@@ -23,11 +23,6 @@ __PACKAGE__->add_columns(
         default_value => undef,
         size => 255
     },
-    "tags",
-    {
-        data_type => "longtext",
-        default_value => undef,
-    },
     "description",
     {
         data_type => "longtext",
