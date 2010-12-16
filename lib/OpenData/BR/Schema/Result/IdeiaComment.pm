@@ -12,8 +12,9 @@ __PACKAGE__->add_columns(
     "id",
     {
         data_type => "INT",
-        default_value => undef,
         size => 11,
+        is_nullable => 0,
+        is_auto_increment => 1,
     },
     "user_id",
     {

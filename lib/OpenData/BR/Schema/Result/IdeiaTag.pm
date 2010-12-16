@@ -13,6 +13,8 @@ __PACKAGE__->add_columns(
     {
         data_type => "INT",
         size => 11,
+        is_nullable => 0,
+        is_auto_increment => 1,
     },
     "tag_id",
     {

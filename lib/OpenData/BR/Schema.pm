@@ -2,7 +2,7 @@
 package OpenData::BR::Schema;
 use base qw/DBIx::Class::Schema/;
 
-our $VERSION = 0.001;
+our $VERSION = 0.002;
 
 __PACKAGE__->load_namespaces();
 
