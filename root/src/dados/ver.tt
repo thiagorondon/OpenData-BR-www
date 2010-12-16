@@ -1,0 +1,21 @@
+
+<h1>Dados</h1>
+
+<h2>[% dado.title %]</h2>
+
+<p>Postado no dia [% dado.create_time.strftime('%d/%m/%Y') %] às [% dado.create_time.strftime('%H:%M:%S') %] por [% dado.user.name %].</p>
+
+<p>Tags: [% FOREACH item = dado.tags %] [% item.tag.name %] [% END %]</p>
+
+<blockquote>
+[% dado.description %]
+</blockquote>
+
+[% INCLUDE dados/comentarios.tt %]
+
+[% IF user %]
+	[% INCLUDE comentar.tt %]
+[% ELSE %]
+	Para comentar efetue o <a href="/login">login</a>.
+[% END %]
+
