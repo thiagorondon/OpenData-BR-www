@@ -1,0 +1,24 @@
+
+<form method="POST">
+
+<Table><tr><td>
+Titulo:
+</td><td>
+<input type="text" name="titulo" value="[% titulo %]" size="35">
+
+</td></tr><tr><td>
+Tags:
+</td><td>
+<input type="text" name="tags" value="[% tags %]"size="35">
+
+</td></tr><tr><td valign="top">
+Descrição:
+</td><td>
+<textarea name="descricao" rows="15" cols="34">[% descricao %]</textarea>
+
+</td></tr><tr><td colspan="2">
+<input type="submit" value=" Compartilhar ! ">
+
+</td></tr></table>
+
+
