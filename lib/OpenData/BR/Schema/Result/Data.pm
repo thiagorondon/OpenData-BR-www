@@ -42,7 +42,6 @@ __PACKAGE__->add_columns(
         data_type => 'integer',
         size => 11
     },
-    {
 );
 
 __PACKAGE__->set_primary_key("id");
