@@ -1,5 +1,11 @@
 
 <h1>Dados</h1>
 
-em desenvolvimento.
+<p>Você tem algum dado para compartilhar em formato aberto ?</p>
+
+[% IF user %] <a href="/dados/nova">clique aqui!</a> 
+[% ELSE %] efetue <a href="/login">login</a> e preencha um simples formulario!
+[% END %]
+
+[% INCLUDE dados/listar.tt %]
 

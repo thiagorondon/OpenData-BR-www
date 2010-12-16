@@ -1,7 +1,7 @@
 
 [% USE String %]
 
-[% FOREACH ideia = collection.dados.all %]
+[% FOREACH dado = collection.dados.all %]
 
 <blockquote>
 * <a href="/dados/ver/[% dado.id %]">[% dado.title %]</a> postada no dia [% dado.create_time.strftime('%d/%m/%Y') %].<br/>

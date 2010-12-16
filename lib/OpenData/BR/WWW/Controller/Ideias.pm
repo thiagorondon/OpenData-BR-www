@@ -72,7 +72,7 @@ sub create_TAGS : Private {
         $tag =~ s/^ *//;
         $tag =~ s/ *$//;
         
-        my $obj = $c->model('DB::Tag')->find_or_create({ tag => $tag });
+        my $obj = $c->model('DB::Tag')->find_or_create({ name => $tag });
         $c->model('DB::IdeiaTag')->find_or_create({ 
             tag_id => $obj->id, 
             ideia_id => $c->stash->{ideia}->id

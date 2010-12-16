@@ -9,7 +9,7 @@ BEGIN { extends 'Catalyst::Controller'; }
 
 sub base : Chained('/base') PathPart('dados') CaptureArgs(0) {}
 
-sub base_required : Chained('/required') PathPart('ideias') CaptureArgs(0) {}
+sub base_required : Chained('/required') PathPart('dados') CaptureArgs(0) {}
 
 sub root : Chained('base') PathPart('') Args(0) {
     my ($self, $c) = @_;
@@ -21,7 +21,7 @@ sub ver : Chained('base') Args(1) {
     my ($self, $c, $id) = @_;
     my $collection = $c->model('DB::Data');
 
-    $c->stash->{ideia} = $collection->find($id);
+    $c->stash->{dado} = $collection->find($id);
     $c->forward('handle_POST');
 
     if (length($c->req->param('descricao')) < 10) {
@@ -33,12 +33,13 @@ sub ver : Chained('base') Args(1) {
     my $collection_comments = $c->model('DB::DataComment');
     $collection_comments->new({
         user_id => $c->user->obj->id,
-        ideia_id => $id,
+        data_id => $id,
         description => $c->req->param('descricao'),
-        create_time => \'NOW()'
+        create_time => \'NOW()',
+        url => $c->req->param('url')
     })->insert;
     
-    $c->stash->{ideia} = $collection->find($id);
+    $c->stash->{dado} = $collection->find($id);
     $c->stash->{success} = 1;
 }
 
@@ -48,7 +49,7 @@ sub nova : Chained('base_required') Args(0) {
     $c->forward('handle_POST');
     $c->forward('check_DATA');
 
-    $c->stash->{ideia} = $c->model('DB::Data')->new({
+    $c->stash->{dado} = $c->model('DB::Data')->new({
         title => $c->req->param('titulo'),
         description => $c->req->param('descricao'),
         user_id => $c->user->obj->id,
@@ -56,7 +57,7 @@ sub nova : Chained('base_required') Args(0) {
         active => 0
     })->insert;
 
-    if ($c->stash->{ideia}->id) {
+    if ($c->stash->{dado}->id) {
         $c->forward('create_TAGS');
         $c->stash->{success} = 1;
     } else {
@@ -72,10 +73,10 @@ sub create_TAGS : Private {
         $tag =~ s/^ *//;
         $tag =~ s/ *$//;
         
-        my $obj = $c->model('DB::Tag')->find_or_create({ tag => $tag });
+        my $obj = $c->model('DB::Tag')->find_or_create({ name => $tag });
         $c->model('DB::DataTag')->find_or_create({ 
             tag_id => $obj->id, 
-            ideia_id => $c->stash->{ideia}->id
+            data_id => $c->stash->{dado}->id
         });
     }
 }
@@ -90,7 +91,7 @@ sub last_DADOS : Private {
 
 sub check_DATA : Private {
     my ($self, $c) = @_;
-    my $collection = $c->model('DB::Dado');
+    my $collection = $c->model('DB::Data');
 
     my @error_fields = ();
     if ( !$c->req->param('titulo') or length($c->req->param('titulo')) < 8 ) {
@@ -99,7 +100,7 @@ sub check_DATA : Private {
     }
 
     if ( $collection->find({ title => $c->req->param('titulo') }) ) {
-        $c->stash->{error_msg} = "Ja existe uma ideia com este titulo";
+        $c->stash->{error_msg} = "Ja existe um dado  com este titulo";
         push(@error_fields, 1);
     }
 
@@ -124,7 +125,12 @@ sub check_DATA : Private {
         push(@error_fields, 'descricao');
     }
 
-    my @fields = ('titulo', 'tags', 'descricao');
+    if (!$c->req->param('url')) {
+        $c->stash->{error_msg} = "URL invalida";
+        push(@error_fields, 'url');
+    }
+
+    my @fields = ('titulo', 'tags', 'descricao', 'url');
     map { $c->stash->{$_} = $c->req->param($_) } @fields;
     map { $c->stash->{$_} = undef } @error_fields;
     $c->detach if scalar(@error_fields);
