@@ -1,11 +1,11 @@
 
 <h1>Ideias</h1>
 
-<p>Você tem alguma boa ideia para manipular ou buscar dados do governo para ficarem de forma livres e transparentes ? 
+<p>Uma lista de ideias pode ajudar muito aos desenvolvedores voluntários a escolherem no que trabalhar e terem também mais sucesso. Caso você tenha uma ideia, detalhe ela para nós e torne ela publica para que possamos compartilhar com mais pessoas e talvez alguém possa desenvolver melhor ela!</p>
 
-[% IF user %] <a href="/ideias/nova">clique aqui!</a> 
-[% ELSE %] efetue <a href="/login">login</a> e preencha um simples formulario!
-[% END %]
+[% IF user %] <a href="/ideias/nova">clique aqui</a> 
+[% ELSE %] efetue <a href="/login">login</a> [% END %]
+e preencha um simples formulario!
 
 [% INCLUDE listar_items.tt items = collection.ideias.all %]
 

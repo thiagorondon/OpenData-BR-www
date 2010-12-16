@@ -1,7 +1,7 @@
 
 <h1>Dados</h1>
 
-<p>Você tem algum dado para compartilhar em formato aberto ?</p>
+<p>Esta pagina tem como objetivo ser um repositorio centralizador de informacoes disponiveis sobre o governo brasileiro em formato aberto. Você tem algum dado para compartilhar em formato aberto ?</p>
 
 [% IF user %] <a href="/dados/nova">clique aqui!</a> 
 [% ELSE %] efetue <a href="/login">login</a> e preencha um simples formulario!
