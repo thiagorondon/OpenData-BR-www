@@ -14,7 +14,7 @@
 [% END %]
 
 <hr size=1>
-Tags: [% ideia.tags %]
+Tags: [% FOREACH item = ideia.tags %] [% item.tag.name %] [% END %]
 </blockquote>
 
 [% END %]

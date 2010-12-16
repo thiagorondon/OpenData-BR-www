@@ -5,7 +5,7 @@
 
 <p>Postado no dia [% ideia.create_time.strftime('%d/%m/%Y') %] às [% ideia.create_time.strftime('%H:%M:%S') %] por [% ideia.user.name %].</p>
 
-<p>Tags: [% ideia.tags %]</p>
+<p>Tags: [% FOREACH item = ideia.tags %] [% item.tag.name %] [% END %]</p>
 
 <blockquote>
 [% ideia.description %]
