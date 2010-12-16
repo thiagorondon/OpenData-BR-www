@@ -48,18 +48,36 @@ sub nova : Chained('base_required') Args(0) {
     $c->forward('handle_POST');
     $c->forward('check_DATA');
 
-    my $collection = $c->model('DB::Ideia');
-
-    $collection->new({
+    $c->stash->{ideia} = $c->model('DB::Ideia')->new({
         title => $c->req->param('titulo'),
         description => $c->req->param('descricao'),
-        tags => $c->req->param('tags'),
         user_id => $c->user->obj->id,
         create_time => \'NOW()',
         active => 0
     })->insert;
 
-    $c->stash->{success} = 1;
+    if ($c->stash->{ideia}->id) {
+        $c->forward('create_TAGS');
+        $c->stash->{success} = 1;
+    } else {
+        $c->stash->{error_msg} = 1;
+    }
+}
+
+sub create_TAGS : Private {
+    my ($self, $c) = @_;
+
+    foreach my $tag (split(',', $c->req->param('tags'))) {
+        chomp($tag);
+        $tag =~ s/^ *//;
+        $tag =~ s/ *$//;
+        
+        my $obj = $c->model('DB::Tag')->find_or_create({ tag => $tag });
+        $c->model('DB::IdeiaTag')->find_or_create({ 
+            tag_id => $obj->id, 
+            ideia_id => $c->stash->{ideia}->id
+        });
+    }
 }
 
 sub last_IDEIAS : Private {
