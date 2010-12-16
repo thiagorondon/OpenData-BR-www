@@ -57,5 +57,11 @@ __PACKAGE__->has_many(
         => { 'foreign.ideia_id' => 'self.id' }
 );
 
+__PACKAGE__->has_many(
+    tags => 'OpenData::BR::Schema::Result::IdeiaTag'
+        => { 'foreign.ideia_id' => 'self.id' }
+);
+
+
 1;
 

@@ -16,7 +16,7 @@ __PACKAGE__->add_columns(
         is_nullable => 0,
         is_auto_increment => 1,
     },
-    "tag",
+    "name",
     {
         data_type => "varchar",
         size => 255
@@ -24,7 +24,7 @@ __PACKAGE__->add_columns(
 );
 
 __PACKAGE__->set_primary_key("id");
-__PACKAGE__->add_unique_constraint( ['tag'] );
+__PACKAGE__->add_unique_constraint( ['name'] );
 
 1;
 
