@@ -45,7 +45,6 @@ sub index :Path :Args(0) {
 sub sobre : Chained('/base'): Args(0) {}
 sub contato : Chained('/base'): Args(0) {}
 sub aplicativos : Chained('/base'): Args(0) {}
-sub dados : Chained('/base'): Args(0) {}
 
 =head2 default
 
