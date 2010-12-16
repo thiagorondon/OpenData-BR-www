@@ -1,7 +1,7 @@
 
 <h2>Comentários:</h2>
 
-[% FOREACH comment IN dados.comments %]
+[% FOREACH comment IN comentarios %]
 
 <blockquote>
 Por [% comment.user.name %] em [% comment.create_time.strftime('%d/%m/%Y') %] às [% comment.create_time.strftime('%H:%M:%S') %] 

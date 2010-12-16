@@ -1,0 +1,6 @@
+
+Tags: 
+[% FOREACH item = tags %] 
+	<a href="/dados/tag/[% item.tag.name %]">[% item.tag.name %]</a>
+[% END %]
+

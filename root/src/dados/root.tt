@@ -7,5 +7,5 @@
 [% ELSE %] efetue <a href="/login">login</a> e preencha um simples formulario!
 [% END %]
 
-[% INCLUDE dados/listar.tt %]
+[% INCLUDE listar_items.tt items = collection.dados.all %]
 

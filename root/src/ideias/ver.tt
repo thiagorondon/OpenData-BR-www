@@ -5,13 +5,13 @@
 
 <p>Postado no dia [% ideia.create_time.strftime('%d/%m/%Y') %] às [% ideia.create_time.strftime('%H:%M:%S') %] por [% ideia.user.name %].</p>
 
-<p>Tags: [% FOREACH item = ideia.tags %] [% item.tag.name %] [% END %]</p>
+[% INCLUDE listar_tags.tt tags = ideia.tags %]
 
 <blockquote>
 [% ideia.description %]
 </blockquote>
 
-[% INCLUDE ideias/comentarios.tt %]
+[% INCLUDE listar_comentarios.tt comentarios = ideia.comments %]
 
 [% IF user %]
 	[% INCLUDE comentar.tt %]

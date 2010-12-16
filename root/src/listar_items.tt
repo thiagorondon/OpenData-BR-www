@@ -1,7 +1,7 @@
 
 [% USE String %]
 
-[% FOREACH dado = collection.dados.all %]
+[% FOREACH dado = items %]
 
 <blockquote>
 * <a href="/dados/ver/[% dado.id %]">[% dado.title %]</a> postada no dia [% dado.create_time.strftime('%d/%m/%Y') %].<br/>
@@ -14,7 +14,7 @@
 [% END %]
 
 <hr size=1>
-Tags: [% FOREACH item = dado.tags %] [% item.tag.name %] [% END %]
+[% INCLUDE listar_tags.tt tags = dado.tags %]
 </blockquote>
 
 [% END %]

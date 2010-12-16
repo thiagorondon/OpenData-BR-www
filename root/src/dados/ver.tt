@@ -5,13 +5,13 @@
 
 <p>Postado no dia [% dado.create_time.strftime('%d/%m/%Y') %] às [% dado.create_time.strftime('%H:%M:%S') %] por [% dado.user.name %].</p>
 
-<p>Tags: [% FOREACH item = dado.tags %] [% item.tag.name %] [% END %]</p>
+[% INCLUDE listar_tags.tt tags = dado.tags %]
 
 <blockquote>
 [% dado.description %]
 </blockquote>
 
-[% INCLUDE dados/comentarios.tt %]
+[% INCLUDE listar_comentarios.tt comentarios = dado.comments %]
 
 [% IF user %]
 	[% INCLUDE comentar.tt %]
