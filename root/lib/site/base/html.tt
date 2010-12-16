@@ -25,6 +25,7 @@
 	<div id="nav">
 	
 	<ul>
+	<li><a href="/">/</a></li>
 	<li><a href="/sobre">Sobre</a></li>
 	<li><a href="/dados">Dados</a></li>
 	<li><a href="/ideias">Ideias</a></li>
