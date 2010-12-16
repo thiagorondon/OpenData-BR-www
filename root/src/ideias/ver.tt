@@ -14,7 +14,7 @@
 [% INCLUDE ideias/comentarios.tt %]
 
 [% IF user %]
-	[% INCLUDE ideias/comentar.tt %]
+	[% INCLUDE comentar.tt %]
 [% ELSE %]
 	Para comentar efetue o <a href="/login">login</a>.
 [% END %]

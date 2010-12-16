@@ -1,0 +1,21 @@
+
+<h1>Dados</h1>
+
+[% IF success %]
+
+<p>
+Dado compartilhada! Ela será publicada em breve, depois da analise de nossos moderadores.
+</p>
+
+[% ELSE %]
+
+	[% IF error_msg %]
+
+	<p>Erro: <b> [% error_msg %] </b> </p>
+
+	[% END %]
+
+[% INCLUDE dados/campos.tt %]
+
+[% END %]
+
