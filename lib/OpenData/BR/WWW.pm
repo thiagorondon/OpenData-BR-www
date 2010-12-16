@@ -65,7 +65,7 @@ __PACKAGE__->config(
             },
             store => {
                 class => 'DBIx::Class',
-                user_model => 'DB::Users',
+                user_model => 'DB::User',
             },
         },
     },
