@@ -2,9 +2,23 @@
 <h1>FAQ</h1>
 
 
-<p><b>Como posso contribuir para o projeto ?</b/></p>
-
 <p><b>O que significa OpenData ?</b></p>
 
+<p>É a filosofia e pratica de disponibilizar uma informação disponível para todos, sem restrições de copyrights, patentes, mecanismos de controle ou em um formato que não seja possivel manipular ele.</p>
+
+<p>Não existe ainda uma formalização sobre este termo, porém ele pode ser tambem dito como "open metadata", no qual facilitam o entendimento dos relacionamentos e a utilidade das informações de dados.</p>
+
+<p>Nosso objetivo é tornar que dados disponivel pelo governo sejam de facil manipulação pela sociedade, para facilitar este trabalho os dados deveriam estar todos em formatos abertos, o que não acontece na prática.</p>
+
+<p><b>Como posso contribuir para o projeto ?</b/></p>
+
+<p>Basicamente, qualquer pessoa com vontade e tempo. Como o projeto envolve a transformação de qualquer dado público para um padrão aberto, nós precisamos de ajuda para saber onde estão os dados, e como transformar eles em formato aberto.</p>
+
+<p>Caso, você saiba de algum dado aberto que seria interessante de ser extraido e transformado para um formato aberto, poste sua <a href="/ideias">ideia</a> agora mesmo!</p>
+
+<p>E se você quiser desenvolver aplicativos, veja nossa seção de <a href="/aplicativos">aplicativos</a> e as ideias de locais para buscar estas informações.</p>
+
 <p><b>Eu extrai dados sem nenhum software especifico, posso compartilhar ?</b></p>
+
+<p>Sim! Os dados que estão hospedados neste repositorio são sempre revisados por membros da própria comunidade opendata-br</p>
 

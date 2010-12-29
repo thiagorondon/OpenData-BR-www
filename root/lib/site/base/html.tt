@@ -22,41 +22,43 @@
 	<h2>Dados P&uacute;blicos brasileiros</h2>
 	</div><!--//end #headern//-->
 	
+	<div id="menu">
+		<ul>
+		<li><a href="/">Home</a></li>
+		<li>|</li>
+		<li><a href="/sobre">Sobre</a></li>
+		<li>|</li>
+		<li><a href="/dados">Dados</a></li>
+		<li>|</li>
+		<li><a href="/ideias">Ideias</a></li>
+		<li>|</li>
+		<li><a href="/aplicativos">Aplicativos</a></li>
+		<li>|</li>
+		<li><a href="/faq">FAQ</a></li>
+		<li>|</li>
+		<li><a href="/contato">Contato</a></li>
+		<li>|</li>
+		[% IF user %]
+		<li><a href="/usuario/preferencias">Preferencias</a></li>
+		<li>|</li>
+		<li><a href="/logout">Logout</a></li>
+		[% ELSE %]
+		<li><a href="/login">Login</a></li>
+		<li>|</li>
+		<li><a href="/usuario/cadastro">Cadastro</a></li>
+		[% END %]
+		</ul>
+	</div><!--//end #menu//-->
 	<div id="nav">
-	
-	<ul>
-	<li><a href="/">/</a></li>
-	<li><a href="/sobre">Sobre</a></li>
-	<li><a href="/dados">Dados</a></li>
-	<li><a href="/ideias">Ideias</a></li>
-	<li><a href="/aplicativos">Aplicativos</a></li>
-	<li><a href="/faq">FAQ</a></li>
-	<li><a href="/contato">Contato</a></li>
-	[% IF user %]
-	<li><a href="/usuario/preferencias">Preferencias</a></li>
-	<li><a href="/logout">Logout</a></li>
-	[% ELSE %]
-	<li><a href="/login">Login</a></li>
-	<li><a href="/usuario/cadastro">Cadastro</a></li>
-	[% END %]
-	</ul>
-
+	[% content %]
 	</div><!--//end #nav//-->
-	
-[% content %]
-
-<div id="footer">
-<p>
-<a href="http://validator.w3.org/check/referer"><img src="/static/images/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
-
-<p>Apoio:</p>
-
-<p><a href="http://www.aviva.org.br/"><img src="/static/images/aviva.jpg" border="0"/></a></p>
-
-<p><br clear="left" /></p>
-
 </div>
-
+<div id="footer">
+	<div class="w3"><a href="http://validator.w3.org/check/referer"><img src="/static/images/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88" /></a></div>
+	<div class="apoio">
+		<p>Apoio:</p>
+		<p><a href="http://www.aviva.org.br/"><img src="/static/images/aviva.gif" border="0"/></a></p>
+	</div>
 </div>
 
 <script type="text/javascript">

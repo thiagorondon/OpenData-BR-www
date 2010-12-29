@@ -1,19 +1,16 @@
 
-<h1>Login</h1>
+<h1>Login <font size=1>(<A href="/usuario/cadastro"> N&atilde;o tem cadastro? </a>)</font></h1>
 
 <div class="error">[% error_msg || c.flash.error_msg %]</div>
 
-
-<p><A href="/usuario/cadastro">N&atilde;o tem cadastro?</a></p>
-
 <form action="/login" method="POST">
 
-<table><tr><td>
+<table class="form" width="350"><tr><td class="label">
 E-mail : </td><td> <input type="text" name="username" size="15">
-</td></tr><tr><td>
+</td></tr><tr><td class="label">
 Senha: </td><td>
 <input type="password" name="password" size="15">
-</td></tr><tr><td colspan="2">
+</td></tr><tr><td></td><td>
 <input type="submit" value=" Login ">
 </td></tr></table>
 

@@ -5,10 +5,10 @@ AUTHOR: The CSS Tinderbox - http://www.csstinderbox.com
 *******************************************************/
 
 body {
-margin:3em;
+margin:0;
 padding:0;
 height:100%;
-background-color:#ffffff;
+background-color:#dbd9b5;
 color:#000000;  
 text-align:center;
 font-family:Arial, Helvetica, sans-serif;
@@ -16,12 +16,12 @@ font-size:.9em;
 }
 
 a {
-color:#cc0000;
+color:#3e5b2b;
 text-decoration:underline;
 }
 
 a:hover {
-color:#eeeeee;
+color:#7fa170;
 text-decoration:none;
 }
 
@@ -39,12 +39,13 @@ margin:.2em;
 
 #centerColumn { 	
 margin:0 auto;
-padding:1em;
-width:38em;
+padding:0;
+width:1000px;
 text-align:left;
 vertical-align: middle;	
-background-color:#cccccc;
-border:1px solid #999999;
+background-color:#fff;
+border-left: 1px solid #ceccaa;
+border-right: 1px solid #ceccaa;
 }
 
 #centerColumn h2 {
@@ -55,21 +56,22 @@ letter-spacing:.1em;
 }
 
 #header {
-margin:-1em -1em 0 -1em;
-padding:0 0 0 0;
+margin:0;
+padding:5px;
 height:5em;
-background-color:#ffffff;
+background-image: url(/static/images/bg_top.gif);
+background-repeat: repeat-x;
 }
 
 #header h1 {
-margin:0 0 -.6em 0;
+margin:0;
 padding:.5em 0 0 1em;
 font-size:1.5em;
 letter-spacing:.1em;
 }
 
 #header h2 {
-margin:0 0 0 0;
+margin:0;
 padding:1em 0 0 1.75em;
 font-size:.9em;
 font-weight:300;
@@ -77,36 +79,96 @@ letter-spacing:.1em;
 }
 
 #nav {
-margin:0 0 1em 0;
-padding:.4em 0 0 0;
+margin:0;
+padding: 5px 20px;
+min-height: 300px;
+*height: 300px;
 }
 
-#nav ul {
+#menu{
+	padding: 6px 0 0 6px;
+	height: 29px;
+	background-image: url(/static/images/bg_menu.gif);
+	background-repeat: repeat-x;
+}
+
+
+#menu ul {
 margin:0;
 padding:0;
 list-style:none;
 }
 
-#nav li {
+#menu li {
 margin:0;
 padding:.25em;
 display:inline;
+color: #fff;
 }
 
+#menu li a, #menu li a:visited{
+	font-size: .9em;
+	color: #fff;
+	text-decoration: none;
+}
+
+#menu li a:hover{
+	color: #dfffcf;
+}
+
+
+
 #footer {
-position:relative;
-bottom:0;
-margin:5em 0 0 0;
-padding:0;
-height:4em;
-line-height:4em;
-text-align:center;
-font-size:.7em;
-background-color:#cccccc;
-border-top:1px solid #999999;
+	width: 1000px;
+	margin:0 auto;
+	padding:0;
+	text-align: left;
+	border-top: 1px solid #ceccaa;
+}
+
+#footer .apoio{
+	width: 1000px;
+	font-size:.7em;
+	text-align:center;
+}
+#footer .w3{
+	width: 1000px;
+	position:absolute;
+	text-align:right;
+	padding: 5px;
 }
 
 img {
 	border:0; vertical-align: middle;
 }
 
+input[type="submit"] {
+	border: 0;
+	background: url(/static/images/button.gif) no-repeat 0 0;
+	cursor: pointer;
+	height:32px;
+	width: 132px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+	font-style: italic;
+	font-weight: bold;
+	color: #efefef;
+	text-shadow: 1px 1px #343434;
+	text-transform: uppercase;
+	letter-spacing:-1px;
+}
+input[type="submit"]:hover {
+	background-position: 0 -33px;
+}
+input[type="text"],input[type="password"], textarea{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:.9em;
+	border: 1px solid #666;
+	padding: 2px 3px;
+	color: #3e5b2b;
+	width: 95%;
+}
+table.form td.label{
+	color: #3e5b2b;
+	text-align: right;
+}

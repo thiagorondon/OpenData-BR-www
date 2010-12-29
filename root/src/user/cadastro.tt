@@ -21,5 +21,6 @@ Cadastro realizado com sucesso !
 
 [% INCLUDE user/campos.tt %]
 
+<br />
 [% END %]
 
