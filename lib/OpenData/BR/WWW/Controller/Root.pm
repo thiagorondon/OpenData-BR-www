@@ -39,13 +39,16 @@ sub required : Chained('/login/required') PathPart('') : CaptureArgs(0) {
 
 sub index :Path :Args(0) {
     my ($self, $c) = @_;
+    $c->stash->{user} = $c->user;
+    $c->stash->{collection}{ideia} = $c->model('DB::Ideia');
+    $c->stash->{collection}{user} = $c->model('DB::User');
 }
 
 sub sobre : Chained('/base'): Args(0) {}
-sub contato : Chained('/base'): Args(0) {}
+sub comunidade : Chained('/base'): Args(0) {}
 sub aplicativos : Chained('/base'): Args(0) {}
 sub faq : Chained('/base'): Args(0) {}
-
+sub especificacao : Chained('/base') : Args(0) {}
 
 =head2 default
 

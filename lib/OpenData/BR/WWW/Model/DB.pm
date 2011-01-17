@@ -7,7 +7,7 @@ __PACKAGE__->config(
     schema_class => 'OpenData::BR::Schema',
     connect_info => {
         dsn => 'dbi:mysql:dbname=opendatabr_org',    
-        user => 'thiago',
+        user => 'root',
         password => '',
     }
 );
