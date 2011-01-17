@@ -5,7 +5,7 @@ use lib "$Bin/../lib";
 
 use aliased 'OpenData::BR::Schema';
 
-my $schema = Schema->connect('dbi:mysql:dbname=opendatabr_org', 'thiago', '');
+my $schema = Schema->connect('dbi:mysql:dbname=opendatabr_org', 'root', '');
 
 if (!$schema->get_db_version()) {
     # schema is unversioned
