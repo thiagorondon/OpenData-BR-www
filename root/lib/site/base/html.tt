@@ -28,6 +28,8 @@
 		<li>|</li>
 		<li><a href="/sobre">Sobre</a></li>
 		<li>|</li>
+		<li><a href="/especificacao">Especifica&ccedil;&atilde;o</a>
+		<li>|</li>
 		<li><a href="/dados">Dados</a></li>
 		<li>|</li>
 		<li><a href="/ideias">Ideias</a></li>
@@ -54,7 +56,9 @@
 	</div><!--//end #nav//-->
 </div>
 <div id="footer">
-	<div class="w3"><a href="http://validator.w3.org/check/referer"><img src="/static/images/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88" /></a></div>
+	<div class="w3">
+	<a href="http://opendefinition.org/"><img alt="This material is Open Data" border="0" src="http://m.okfn.org/images/ok_buttons/od_80x23_blue.png" /></a></div>
+
 	<div class="apoio">
 		<p>Apoio:</p>
 		<p><a href="http://www.aviva.org.br/"><img src="/static/images/aviva.gif" border="0"/></a></p>

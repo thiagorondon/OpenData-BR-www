@@ -7,6 +7,6 @@
 [% ELSE %] efetue <a href="/login">login</a> [% END %]
 e preencha um simples formulario!
 
-[% INCLUDE listar_items.tt items = collection.ideias.all %]
+[% INCLUDE listar_items.tt zone = "ideias" items = collection.ideias.all %]
 
 

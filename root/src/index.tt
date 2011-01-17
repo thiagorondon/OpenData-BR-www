@@ -7,13 +7,37 @@
 
 <p>Seja muito bem vindo ao projeto do OpenData-BR.</p>
 
-<p>Nosso principal objetivo aqui é disponibilizar dados no formato aberto, assim como ser um repositório de ideias para sociedade.</p>
+<p>Nosso principal objetivo aqui é disponibilizar dados do governo em formato aberto, assim como ser um repositório de ideias para sociedade.</p>
 
 <p><b>Hoje somos</b></p>
 <ul>
-<li>N ideias</li>
-<li>N usuarios</li>
+<li>[% collection.ideia.count %] ideias</li>
+<li>[% collection.user.count %] usuarios</li>
 </ul>
+
+[% IF user %]
+
+[% ELSE %]
+
+<h2>Login</h2>
+<Br/><br/>
+
+<form action="/login" method="POST">
+
+<table class="form"><tr><td class="label">
+E-mail : </td><td> <input type="text" name="username" size="10">
+</td></tr><tr><td class="label">
+Senha: </td><td>
+<input type="password" name="password" size="10">
+</td></tr><tr><td></td><td>
+<input type="submit" value=" Login ">
+</td></tr></table>
+
+
+</form>
+
+[% END %]
+
 
 </td></tr></table>
 

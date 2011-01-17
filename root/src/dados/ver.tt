@@ -1,6 +1,8 @@
 
 <h1>Dados</h1>
 
+[% IF dado %]
+
 <h2>[% dado.title %]</h2>
 
 <p>Postado no dia [% dado.create_time.strftime('%d/%m/%Y') %] às [% dado.create_time.strftime('%H:%M:%S') %] por [% dado.user.name %].</p>
@@ -17,5 +19,7 @@
 	[% INCLUDE comentar.tt %]
 [% ELSE %]
 	Para comentar efetue o <a href="/login">login</a>.
+[% END %]
+
 [% END %]
 
