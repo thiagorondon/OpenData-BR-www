@@ -1,0 +1,95 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Google Visualization API Sample</title>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load('visualization', '1', {packages: ['geomap']});
+
+    function drawVisualization() {
+        var data = new google.visualization.DataTable();
+        data.addRows(28);
+        data.addColumn('string', 'Estado');
+        data.addColumn('number', 'CEIS');
+    data.setValue(0, 0, 'DF');
+    data.setValue(0, 1, 387)
+    data.setValue(1, 0, 'SP');
+    data.setValue(1, 1, 301)
+    data.setValue(2, 0, 'BA');
+    data.setValue(2, 1, 184)
+    data.setValue(3, 0, 'MG');
+    data.setValue(3, 1, 137)
+    data.setValue(4, 0, 'RJ');
+    data.setValue(4, 1, 121)
+    data.setValue(5, 0, 'PE');
+    data.setValue(5, 1, 102)
+    data.setValue(6, 0, 'RS');
+    data.setValue(6, 1, 54)
+    data.setValue(7, 0, 'AC');
+    data.setValue(7, 1, 40)
+    data.setValue(8, 0, 'PR');
+    data.setValue(8, 1, 35)
+    data.setValue(9, 0, 'GO');
+    data.setValue(9, 1, 33)
+    data.setValue(10, 0, 'MA');
+    data.setValue(10, 1, 32)
+    data.setValue(11, 0, 'AM');
+    data.setValue(11, 1, 30)
+    data.setValue(12, 0, 'SE');
+    data.setValue(12, 1, 30)
+    data.setValue(13, 0, 'PB');
+    data.setValue(13, 1, 28)
+    data.setValue(14, 0, 'SC');
+    data.setValue(14, 1, 23)
+    data.setValue(15, 0, 'CE');
+    data.setValue(15, 1, 21)
+    data.setValue(16, 0, 'RO');
+    data.setValue(16, 1, 21)
+    data.setValue(17, 0, 'AL');
+    data.setValue(17, 1, 18)
+    data.setValue(18, 0, 'MS');
+    data.setValue(18, 1, 18)
+    data.setValue(19, 0, 'RN');
+    data.setValue(19, 1, 18)
+    data.setValue(20, 0, 'PI');
+    data.setValue(20, 1, 16)
+    data.setValue(21, 0, 'PA');
+    data.setValue(21, 1, 14)
+    data.setValue(22, 0, 'ES');
+    data.setValue(22, 1, 10)
+    data.setValue(23, 0, 'TO');
+    data.setValue(23, 1, 9)
+    data.setValue(24, 0, 'MT');
+    data.setValue(24, 1, 8)
+    data.setValue(25, 0, 'RR');
+    data.setValue(25, 1, 4)
+    data.setValue(26, 0, 'RE');
+    data.setValue(26, 1, 2)
+    data.setValue(27, 0, 'AP');
+    data.setValue(27, 1, 1)
+
+    var options = {};
+    options['region'] = 'BR';
+    options['dataMode'] = 'markers';
+                                 
+    var geomap = new google.visualization.GeoMap(
+        document.getElementById('visualization'));
+    geomap.draw(data, options);
+    }
+                                                     
+
+    google.setOnLoadCallback(drawVisualization);
+</script>
+</head>
+<body style="font-family: Arial;border: 0 none;">
+<div id="visualization" style="width: 600px; height: 750px;"></div>
+</body>
+</html>
+
+

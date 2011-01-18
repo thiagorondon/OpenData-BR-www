@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addRows(7);
+    data.addColumn('string', 'Estado');
+    data.addColumn('number', 'CEIS');
+
+    data.setValue(0, 0, 'DF');
+    data.setValue(0, 1, 387)
+    data.setValue(1, 0, 'SP');
+    data.setValue(1, 1, 301)
+    data.setValue(2, 0, 'BA');
+    data.setValue(2, 1, 184)
+    data.setValue(3, 0, 'MG');
+    data.setValue(3, 1, 137)
+    data.setValue(4, 0, 'RJ');
+    data.setValue(4, 1, 121)
+    data.setValue(5, 0, 'PE');
+    data.setValue(5, 1, 102)
+    data.setValue(6, 0, 'others');
+    data.setValue(6, 1, 465)
+ var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(data, {width: 750, height: 600, title: 'CEIS'});
+}
+</script>
+</head>
+
+<body>
+<div id="chart_div"></div>
+</body>
+</html>
+
