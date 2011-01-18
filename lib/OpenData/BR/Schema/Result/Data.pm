@@ -45,6 +45,15 @@ __PACKAGE__->add_columns(
     "url",
     {
         data_type => "longtext",
+    },
+    "starts",
+    {
+        data_type => 'integer',
+        size => 1,
+    },
+    "url_local",
+    {
+        data_type => "longtext",
     }
 );
 
