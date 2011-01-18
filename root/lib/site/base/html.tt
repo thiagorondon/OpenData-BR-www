@@ -40,6 +40,8 @@
 		<li>|</li>
 		<li><a href="/comunidade">Comunidade</a></li>
 		<li>|</li>
+		<li><a href="/visualizacao">Visualiza&ccedil;&atilde;o</a></li>
+		<li>|</li>
 		[% IF user %]
 		<li><a href="/usuario/preferencias">Preferencias</a></li>
 		<li>|</li>

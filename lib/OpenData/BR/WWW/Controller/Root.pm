@@ -49,6 +49,7 @@ sub comunidade : Chained('/base'): Args(0) {}
 sub aplicativos : Chained('/base'): Args(0) {}
 sub faq : Chained('/base'): Args(0) {}
 sub especificacao : Chained('/base') : Args(0) {}
+sub visualizacao : Chained('/base') : Args(0) {}
 
 =head2 default
 
